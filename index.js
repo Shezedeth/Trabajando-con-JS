@@ -1,3 +1,17 @@
+function operaciones(operacion) {
+    if (operacion === "sumar") {
+        return (a, b) => a + b;
+    }
+    else if (operacion === "restar") {
+        return (a, b) => a - b;
+    }
+    else if (operacion === "multiplicar") {
+        return (a, b) => a * b;
+    }
+    else {
+        return (a, b) => a / b;
+    }
+}
 function tallesDisponibles() {
     let talle = prompt(`que talle esta buscando?`).toLowerCase();
     switch (talle) {
@@ -101,11 +115,11 @@ function colorZapatilla() {
     }
 }
 function iniciarCompra() {
-    let nombre = prompt("ingrese su nombre");
-    let apellido = prompt("ingrese su apellido");
-    let pais = prompt("ingrese su pais");
-    let edad = prompt("ingrese su edad");
-    let mail = prompt("ingrese su mail");
+    const usuario = [nombre = prompt("ingrese su nombre"),
+                    apellido = prompt("ingrese su apellido"),
+                    pais = prompt("ingrese su pais"),
+                    edad = prompt("ingrese su edad"),
+                    mail = prompt("ingrese su mail")];
 
     if (edad >= 18) {
 
@@ -117,7 +131,7 @@ function iniciarCompra() {
         let zapatilla = prompt(`En este momento solo contamos con dos modelos de zapatillas Nike... "Vapormax" y "Air Force",por favor, escribi el modelo que te interesa`).toLowerCase();
 
         if (zapatilla === "vapormax") {
-            alert("Que lindo modelo elejiste");
+            alert("Que lindo modelo elegiste");
             tallesDisponibles()
             colorZapatilla()
 
@@ -137,10 +151,10 @@ function iniciarCompra() {
 }
 iniciarCompra()
 
-const suma = (a, b) => a + b;
-const resta = (a, b) => a - b;
-const multiplicacion = (a, b) => a * b;
-const divicion = (a, b) => a / b;
+let suma = operaciones ("sumar");
+let resta = operaciones("restar");
+let multiplicacion = operaciones("multiplicar");
+let divicion = operaciones("dividir");
 
 let cuota1 = 0;
 let cuota3 = 0.10;
@@ -148,8 +162,6 @@ let cuota6 = 0.22;
 let cuota9 = 0.50;
 let cuota12 = 0.65;
 let cuota18 = 0.80;
-
-
 
 
 let precio = 23000
@@ -166,7 +178,7 @@ let cuotas = prompt(`En cuantos pagos vas a realizarlo?
 switch (cuotas) {
     case "1": {
         let precioFinal = divicion(suma(multiplicacion(precio, cantidad), envio), cuotas);
-        let precioFinalFinal = suma(multiplicacion(precioFinal, cuota1),precioFinal)
+        let precioFinalFinal = suma(multiplicacion(precioFinal, cuota1), precioFinal)
         let total = multiplicacion(precioFinalFinal, cuotas)
         let mensaje = `El monto a abonar es ${cuotas} pago de $${precioFinalFinal}, precio final $${total}`; {
             alert(mensaje);
@@ -187,7 +199,7 @@ switch (cuotas) {
     case "6": {
         let precioFinal = divicion(suma(multiplicacion(precio, cantidad), envio), cuotas);
         let precioFinalFinal = suma(multiplicacion(precioFinal, cuota6), precioFinal)
-        let total = multiplicacion(precioFinalFinal,cuotas)
+        let total = multiplicacion(precioFinalFinal, cuotas)
         let mensaje = `El monto a abonar es ${cuotas} pago de $${precioFinalFinal}, precio final $${total}`; {
             alert(mensaje);
             alert("Muchas gracias por su compra! Que la disfrute :D")

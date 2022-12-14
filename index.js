@@ -114,6 +114,13 @@ function colorZapatilla() {
             break;
     }
 }
+const productos = [
+    { id: 1, producto:"vapormax", precio: 23000},
+    { id: 2, producto:"vapormax 360", precio: 25000},
+    { id: 3, producto:"nike 97", precio: 24000},
+    { id: 4, producto:"shox TL1", precio: 20000},
+];
+
 function iniciarCompra() {
     const usuario = [nombre = prompt("ingrese su nombre"),
                     apellido = prompt("ingrese su apellido"),
@@ -123,38 +130,49 @@ function iniciarCompra() {
 
     if (edad >= 18) {
 
+
         alert("Bienvenido a la pagina de compra online de zapatilla");
 
         let mensaje = `Me llamo Botlulu y sere su asistente virtual en la pagina de compra de zapatillas,es un placer tener el agrado de saludarle ${nombre} ${apellido} de ${edad} años de edad, del genial pais ${pais}.Luego de la compra te enviare un mail a ${mail} para que descargues la factura electronica`;
-
         alert(mensaje);
-        let zapatilla = prompt(`En este momento solo contamos con dos modelos de zapatillas Nike... "Vapormax" y "Air Force",por favor, escribi el modelo que te interesa`).toLowerCase();
 
-        if (zapatilla === "vapormax") {
+        let zapatilla = parseInt(prompt(`seleccione el modelo de zapatilla deseado:
+        1 = vapormax,
+        2 = vapormax 360,
+        3 = nike 97,
+        4 = shox TL1`));
+
+        let identificador = false
+
+        for(const modelo of productos){
+
+        if (modelo.id === zapatilla){
+            identificador = true;
+        }
+        if (identificador){
+            alert("Modelo disponible")
             alert("Que lindo modelo elegiste");
             tallesDisponibles()
             colorZapatilla()
-
-        } else if (zapatilla === "air force") {
-            alert("buenisimo ese modelo");
-            tallesDisponibles()
-            colorZapatilla()
-
-        } else {
+}
+        else {
             alert("Disculpe pero no tenemos ese modelo en este momento, que tenga buen dia")
+            clearInterval(saludar)
         }
-
+        }
     } else if (edad < 18) {
         alert("Lo sentimos, pero no tienes la edad suficiente para hacer compras por internet D:");
         clearInterval(saludar)
     }
 }
+
 iniciarCompra()
 
 let suma = operaciones ("sumar");
 let resta = operaciones("restar");
 let multiplicacion = operaciones("multiplicar");
 let divicion = operaciones("dividir");
+
 
 let cuota1 = 0;
 let cuota3 = 0.10;
@@ -180,6 +198,7 @@ switch (cuotas) {
         let precioFinal = divicion(suma(multiplicacion(precio, cantidad), envio), cuotas);
         let precioFinalFinal = suma(multiplicacion(precioFinal, cuota1), precioFinal)
         let total = multiplicacion(precioFinalFinal, cuotas)
+
         let mensaje = `El monto a abonar es ${cuotas} pago de $${precioFinalFinal}, precio final $${total}`; {
             alert(mensaje);
             alert("Muchas gracias por su compra! Que la disfrute :D")

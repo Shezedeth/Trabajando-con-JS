@@ -1,262 +1,261 @@
-function operaciones(operacion) {
-    if (operacion === "sumar") {
-        return (a, b) => a + b;
-    }
-    else if (operacion === "restar") {
-        return (a, b) => a - b;
-    }
-    else if (operacion === "multiplicar") {
-        return (a, b) => a * b;
-    }
-    else {
-        return (a, b) => a / b;
-    }
-}
-function tallesDisponibles() {
-    let talle = prompt(`que talle esta buscando?`).toLowerCase();
-    switch (talle) {
-        case "34": {
-            let mensaje = "Tenemos stock, es el talle más chico que tenemos"; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "35": {
+let saludo = document.getElementById("saludo");
 
-            let mensaje = "Tenemos stock"; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "36": {
-            let mensaje = "Tenemos stock"; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "37": {
-            let mensaje = "Tenemos stock"; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "38": {
-            let mensaje = "Tenemos stock"; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "39": {
-            let mensaje = "Tenemos stock"; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "40": {
-            let mensaje = "Tenemos stock"; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "41": {
-            let mensaje = "Tenemos stock"; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "42": {
-            let mensaje = "Tenemos stock"; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "43": {
-            let mensaje = "Tenemos stock"; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "44": {
-            let mensaje = "Tenemos stock, este es nuestro talle mas grande"; {
-                alert(mensaje);
-                break;
-            }
-        }
-        default:
-            alert("talle no disponible");
-            break;
-    }
-}
-function colorZapatilla() {
-    let color = prompt(`En ese modelo nos quedan color Negro, Blanco y Verde,escribe el color que deseas`).toLowerCase();
-    switch (color) {
-        case "negro": {
-            let mensaje = `Perfecto, el valor a abonar es de $23000 + $800 de envio`; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "blanco": {
-            let mensaje = `Perfecto, el valor a abonar es de $23000 + $800 de envio`; {
-                alert(mensaje);
-                break;
-            }
-        }
-        case "verde": {
-            let mensaje = `Perfecto, el valor a abonar es de $23000 + $800 de envio`; {
-                alert(mensaje);
-                break;
-            }
-        }
-        default:
-            alert("Disculpe pero no tenemos ese color");
+saludo.innerHTML =`
+            <section class="my-xl-5" id="title">
+                <h1 class="btn-dark position-relative">Registrate y obtene fantasticas ofertas!</h1>
+            </section>
+            <section id="formulario">
+                <form class="row g-0 ">
+                    <div class="col-md-6 p-2">
+                        <label for="inputEmail4" class="form-label">Nombre</label>
+                        <input type="email" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="col-md-6 p-2">
+                        <label for="inputPassword4" class="form-label">Apellido</label>
+                        <input type="password" class="form-control" id="inputPassword4">
+                    </div>
+                    <div class="col-12 p-2">
+                        <label for="inputAddress" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="ejemplo@gmail.com">
+                    </div>
+                    <div class="col-12 p-2">
+                        <label for="inputAddress2" class="form-label">Telefono</label>
+                        <input type="text" class="form-control" id="inputAddress2"
+                            placeholder="011-12345678">
+                    </div>
+                    <div class="col-md-6 p-2">
+                        <label for="inputCity" class="form-label">Ciudad</label>
+                        <input type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <label for="inputState" class="form-label">Provincia</label>
+                        <select id="inputState" class="form-select">
+                            <option selected>Elegir...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 p-2">
+                        <label for="inputZip" class="form-label">CP</label>
+                        <input type="text" class="form-control" id="inputZip">
+                    </div>
+                    <div class="col-12 p-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                acepto recivir novedades
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-12 p-2">
+                        <button type="submit" class="btn btn-primary">enviar</button>
+                    </div>
+                </form>
+            </section>`;
+let formulario = document.getElementById("formulario");
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-            break;
-    }
+    let inputs = e.target.children;
+
+let usuario ={
+    nombre: inputs[0].value,
+    edad: inputs[1].value,
 }
-const productos = [
-    { id: 1, producto:"vapormax", precio: 23000},
-    { id: 2, producto:"vapormax 360", precio: 25000},
-    { id: 3, producto:"nike 97", precio: 24000},
-    { id: 4, producto:"shox TL1", precio: 20000},
+    localStorage.setItem("nombre", inputs[0].value);
+    localStorage.setItem("edad", inputs[1].value);
+});
+
+let seccion = prompt(`seleccione el modelo de zapatilla deseado:
+          vapormax
+          360`);
+
+if (seccion === "vapormax") {
+
+let container = document.getElementById("container");
+const zapatillas = [{
+        id: "Nike Air Vapormax Flyknit",
+        modelo: [`Celeste Pipa Rosa`,`Negra Pipa Dorada`,`Negra Pipa Blanca`,`Barcelona`],
+        precio: 24000,
+        img:[`
+        <iframe src="https://drive.google.com/file/d/1EUnygNOw3Z7rycKGQ3maSGDCbYJ589Bu/preview" width="300" height="400" allow="autoplay"></iframe>`,
+
+        `<iframe src="https://drive.google.com/file/d/1EF9tm1f_S8YQkmELFHXzafjyXVECz6nA/preview" width="300" height="400" allow="autoplay"></iframe>`,
+
+        `<iframe src="https://drive.google.com/file/d/1EY0RzyFcEesY4L1wwlk0ccA9j3u5LBmX/preview" width="300" height="400" allow="autoplay"></iframe>`,
+
+        `<iframe src="https://drive.google.com/file/d/1Cd8Bk1uFDFznymWDtyPvMVc5Xgg_KHv0/preview" width="300" height="400" allow="autoplay"></iframe>`]
+        }];
+zapatillas.forEach(zapatilla => {
+    let div = document.createElement("div");
+    div.innerHTML =
+
+    `<section class="my-xl-5" id="title">
+        <h1 class="btn-dark position-relative">${zapatilla.id}</h1>
+     </section>
+     <div class="row row-cols-1 row-cols-md-1 row-cols-lg-3 row-cols-xl-3 my-xl-5 mx-xl-5 g-0" id="body">
+        <div class="col my-md-3 my-xl-3">
+            <div class="card h-100 mx-md-3 mx-xl-3" id="img-card">
+                ${zapatilla.img[0]}
+                <div class="card-body">
+                    <small class="text-muted">$${zapatilla.precio}</small>
+                    <h5 class="card-title">${zapatilla.modelo[0]}</h5>
+                    <button type="button" class="btn btn-outline-primary" id="boton${zapatilla.id}">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="col my-md-3 my-xl-3">
+            <div class="card h-100 mx-md-3 mx-xl-3" id="img-card">
+               ${zapatilla.img[1]}
+                <div class="card-body">
+                    <small class="text-muted">$${zapatilla.precio}</small>
+                    <h5 class="card-title">${zapatilla.modelo[1]}</h5>
+                   <button type="button" class="btn btn-outline-primary" id="boton${zapatilla.id}">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="col my-md-3 my-xl-3">
+            <div class="card h-100 mx-md-3 mx-xl-3" id="img-card">
+                ${zapatilla.img[2]}
+                <div class="card-body">
+                    <small class="text-muted">$${zapatilla.precio}</small>
+                    <h5 class="card-title">${zapatilla.modelo[2]}</h5>
+                  <button type="button" class="btn btn-outline-primary" id="boton${zapatilla.id}">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="col my-md-3 my-xl-3">
+            <div class="card h-100 mx-md-3 mx-xl-3" id="img-card">
+                ${zapatilla.img[3]}
+                <div class="card-body">
+                    <small class="text-muted">$${zapatilla.precio}</small>
+                    <h5 class="card-title">${zapatilla.modelo[3]}</h5>
+                    <button type="button" class="btn btn-outline-primary" id="boton${zapatilla.id}">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>`;
+
+    container.append(div);
+    let boton = document.getElementById(`boton${zapatilla.id}`);
+
+    const ejecutar = (id) => {
+    console.log(id.modelo);
+}
+    boton.addEventListener("click", () => ejecutar(zapatilla.id));
+    let item = localStorage.getItem("")
+});
+
+
+localStorage.setItem("zapatillas", JSON.stringify(zapatillas));
+}
+else if (seccion === "360") {
+    let container = document.getElementById("container");
+    const zapatillas = [
+   {    id: "Nike Air Vapormax 360",
+        modelo: [`Crema`,`Celeste`,`Negra Multicolor`,`Gris`],
+        precio: 26000,
+        img: [`
+        <iframe src="https://drive.google.com/file/d/1fUISmhVo2NyL3BdH8M5kT79HqGUGKGbK/preview" width="300" height="400" allow="autoplay"></iframe>`,
+
+        `<iframe src="https://drive.google.com/file/d/1a0uSAFu-G2UW5VM2zP2xl7YyZakppXi-/preview" width="300" height="400" allow="autoplay"></iframe>`,
+
+        `<iframe src="https://drive.google.com/file/d/1SSM2tzuQldEeJeyA2MoP-wLZKYJ2n7sn/preview" width="300" height="400" allow="autoplay"></iframe>`,
+
+        `<iframe src="https://drive.google.com/file/d/1gf0SIiyYFuhD3gFTeEQIOsEc9W2Kqvat/preview" width="300" height="400" allow="autoplay"></iframe>`]
+    },
 ];
+localStorage.setItem("zapatillas", JSON.stringify(zapatillas));
 
-function iniciarCompra() {
-    const usuario = [nombre = prompt("ingrese su nombre"),
-                    apellido = prompt("ingrese su apellido"),
-                    pais = prompt("ingrese su pais"),
-                    edad = prompt("ingrese su edad"),
-                    mail = prompt("ingrese su mail")];
+zapatillas.forEach(zapatilla => {
+    let div = document.createElement("div");
+    div.innerHTML = `
 
-    if (edad >= 18) {
+    <section class="my-xl-5" id="title">
+        <h1 class="btn-dark position-relative">${zapatilla.id}</h1>
+     </section>
+    <div class="row row-cols-1 row-cols-md-1 row-cols-lg-3 row-cols-xl-3 my-xl-5 mx-xl-5 g-0" id="body">
+        <div class="col my-md-3 my-xl-3">
+            <div class="card h-100 mx-md-3 mx-xl-3" id="img-card">
+                ${zapatilla.img[0]}
+                <div class="card-body">
+                    <small class="text-muted">$${zapatilla.precio}</small>
+                    <h5 class="card-title">${zapatilla.modelo[0]}</h5>
+                    <button type="button" class="btn btn-outline-primary" id="boton${zapatilla.id}">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="col my-md-3 my-xl-3">
+            <div class="card h-100 mx-md-3 mx-xl-3" id="img-card">
+               ${zapatilla.img[1]}
+                <div class="card-body">
+                    <small class="text-muted">$${zapatilla.precio}</small>
+                    <h5 class="card-title">${zapatilla.modelo[1]}</h5>
+                   <button type="button" class="btn btn-outline-primary" id="boton${zapatilla.id}">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="col my-md-3 my-xl-3">
+            <div class="card h-100 mx-md-3 mx-xl-3" id="img-card">
+                ${zapatilla.img[2]}
+                <div class="card-body">
+                    <small class="text-muted">$${zapatilla.precio}</small>
+                    <h5 class="card-title">${zapatilla.modelo[2]}</h5>
+                  <button type="button" class="btn btn-outline-primary" id="boton${zapatilla.id}">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+        <div class="col my-md-3 my-xl-3">
+            <div class="card h-100 mx-md-3 mx-xl-3" id="img-card">
+                ${zapatilla.img[3]}
+                <div class="card-body">
+                    <small class="text-muted">$${zapatilla.precio}</small>
+                    <h5 class="card-title">${zapatilla.modelo[3]}</h5>
+                    <button type="button" class="btn btn-outline-primary" id="boton${zapatilla.id}">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>`;
 
+    container.append(div);
+    let boton = document.getElementById(`boton${zapatilla.id}`);
 
-        alert("Bienvenido a la pagina de compra online de zapatilla");
-
-        let mensaje = `Me llamo Botlulu y sere su asistente virtual en la pagina de compra de zapatillas,es un placer tener el agrado de saludarle ${nombre} ${apellido} de ${edad} años de edad, del genial pais ${pais}.Luego de la compra te enviare un mail a ${mail} para que descargues la factura electronica`;
-        alert(mensaje);
-
-        let zapatilla = parseInt(prompt(`seleccione el modelo de zapatilla deseado:
-        1 = vapormax,
-        2 = vapormax 360,
-        3 = nike 97,
-        4 = shox TL1`));
-
-        let identificador = false
-
-        for(const modelo of productos){
-
-        if (modelo.id === zapatilla){
-            identificador = true;
-        }
-        if (identificador){
-            alert("Modelo disponible")
-            alert("Que lindo modelo elegiste");
-            tallesDisponibles()
-            colorZapatilla()
+    const ejecutar = (id) => {
+    console.log(id.modelo);
 }
-        else {
-            alert("Disculpe pero no tenemos ese modelo en este momento, que tenga buen dia")
-            clearInterval(saludar)
-        }
-        }
-    } else if (edad < 18) {
-        alert("Lo sentimos, pero no tienes la edad suficiente para hacer compras por internet D:");
-        clearInterval(saludar)
-    }
+    boton.addEventListener("click", () => ejecutar(zapatilla.id));
+    let item = localStorage.getItem("")
+})
+
+}
+else {
+    saludo.innerHTML = "Bienvenid@ a nuestra pajina";
 }
 
-iniciarCompra()
+    // {
+    //     id: "Nike Air Max 97",
+    //     modelo: [`Multicolor`,`Multicolor`,`Multicolor`,`Multicolor`],
+    //     precio: 25500,
+    //     img: [`
+    //     <iframe src="https://drive.google.com/file/d/1EdyIvniiqh9F-sSW_0P7l83hjCJCafEn/preview" width="300" height="400" allow="autoplay"></iframe>`,
 
-let suma = operaciones ("sumar");
-let resta = operaciones("restar");
-let multiplicacion = operaciones("multiplicar");
-let divicion = operaciones("dividir");
+    //     `<iframe src="https://drive.google.com/file/d/1v2d9QatoEHkxyr1ZjR9Few2RLl0jqh_O/preview" width="300" height="400" allow="autoplay"></iframe>`,
 
+    //     `<iframe src="https://drive.google.com/file/d/1enCt9eZOr4_eYlWGp9EB2nXrQfhFtqqz/preview" width="300" height="400" allow="autoplay"></iframe>`,
 
-let cuota1 = 0;
-let cuota3 = 0.10;
-let cuota6 = 0.22;
-let cuota9 = 0.50;
-let cuota12 = 0.65;
-let cuota18 = 0.80;
+    //     `<iframe src="https://drive.google.com/file/d/1EcZRajvyMjVA2LiKIChduUpuXFieJcJA/preview" width="300" height="400" allow="autoplay"></iframe>`]
+    // },
+    // {
+    //     id: "Nike Shox TL1",
+    //     modelo: [`Negra`,`Negra Tornazolada`,`Blanca`,`Azul/Celeste`],
+    //     precio: 7000,
+    //     img: [`
+    //     <iframe src="https://drive.google.com/file/d/1DeDuD41duO3L4e3vLai5pNSIqfPClctb/preview" width="300" height="400" allow="autoplay"></iframe>`,
 
+    //     `<iframe src="https://drive.google.com/file/d/1EBNCnABxMMh7p_n9_baIXYbmjL94mXz_/preview" width="300" height="400" allow="autoplay"></iframe>`,
 
-let precio = 23000
-let cantidad = parseInt(prompt("Ingrese cantidad de pares"));
-let envio = 800;
-let cuotas = prompt(`En cuantos pagos vas a realizarlo?
-1 = 0% interes,
-3 = 10% interes,
-6 = 22% interes,
-9 = 50% interes,
-12 = 65% interes,
-18 = 80% interes`);
+    //     `<iframe src="https://drive.google.com/file/d/1Djlln8XjbIVHadXanzlm70rPzblRjCU1/preview" width="300" height="400" allow="autoplay"></iframe>`,
 
-switch (cuotas) {
-    case "1": {
-        let precioFinal = divicion(suma(multiplicacion(precio, cantidad), envio), cuotas);
-        let precioFinalFinal = suma(multiplicacion(precioFinal, cuota1), precioFinal)
-        let total = multiplicacion(precioFinalFinal, cuotas)
-
-        let mensaje = `El monto a abonar es ${cuotas} pago de $${precioFinalFinal}, precio final $${total}`; {
-            alert(mensaje);
-            alert("Muchas gracias por su compra! Que la disfrute :D")
-            break;
-        }
-    }
-    case "3": {
-        let precioFinal = divicion(suma(multiplicacion(precio, cantidad), envio), cuotas);
-        let precioFinalFinal = suma(multiplicacion(precioFinal, cuota3), precioFinal)
-        let total = multiplicacion(precioFinalFinal, cuotas)
-        let mensaje = `El monto a abonar es ${cuotas} pago de $${precioFinalFinal}, precio final $${total}`; {
-            alert(mensaje);
-            alert("Muchas gracias por su compra! Que la disfrute :D")
-            break;
-        }
-    }
-    case "6": {
-        let precioFinal = divicion(suma(multiplicacion(precio, cantidad), envio), cuotas);
-        let precioFinalFinal = suma(multiplicacion(precioFinal, cuota6), precioFinal)
-        let total = multiplicacion(precioFinalFinal, cuotas)
-        let mensaje = `El monto a abonar es ${cuotas} pago de $${precioFinalFinal}, precio final $${total}`; {
-            alert(mensaje);
-            alert("Muchas gracias por su compra! Que la disfrute :D")
-            break;
-        }
-    }
-    case "9": {
-        let precioFinal = divicion(suma(multiplicacion(precio, cantidad), envio), cuotas);
-        let precioFinalFinal = suma(multiplicacion(precioFinal, cuota9), precioFinal)
-        let total = multiplicacion(precioFinalFinal, cuotas)
-        let mensaje = `El monto a abonar es ${cuotas} pago de $${precioFinalFinal}, precio final $${total}`; {
-            alert(mensaje);
-            alert("Muchas gracias por su compra! Que la disfrute :D")
-            break;
-        }
-    }
-    case "12": {
-        let precioFinal = divicion(suma(multiplicacion(precio, cantidad), envio), cuotas);
-        let precioFinalFinal = suma(multiplicacion(precioFinal, cuota12), precioFinal)
-        let total = multiplicacion(precioFinalFinal, cuotas)
-        let mensaje = `El monto a abonar es ${cuotas} pago de $${precioFinalFinal}, precio final $${total}`; {
-            alert(mensaje);
-            alert("Muchas gracias por su compra! Que la disfrute :D")
-            break;
-        }
-    }
-    case "18": {
-        let precioFinal = divicion(suma(multiplicacion(precio, cantidad), envio), cuotas);
-        let precioFinalFinal = suma(multiplicacion(precioFinal, cuota18), precioFinal)
-        let total = multiplicacion(precioFinalFinal, cuotas)
-        let mensaje = `El monto a abonar es ${cuotas} pago de $${precioFinalFinal}, precio final $${total}`; {
-            alert(mensaje);
-            alert("Muchas gracias por su compra! Que la disfrute :D")
-            break;
-        }
-    }
-    default:
-        alert("cantidad de cuotas invalida");
-
-        break;
-}
+    //     `<iframe src="https://drive.google.com/file/d/1Qmk6oXdsrBkeHEHwgzK0xtjTFJr_yke8/preview" width="300" height="400" allow="autoplay"></iframe>`]
+    // },
